@@ -1,11 +1,13 @@
 # zsh_dotfiles
-
-brew install oh-my-zsh
-brew install starship
-brew install tldr
-brew install fzf
-brew install bat
-brew install fd
-brew install tree
-
-brew install font-fira-code-nerd-font
+<br />
+brew install oh-my-zsh<br />
+brew install starship<br />
+brew install tldr<br />
+brew install fzf<br />
+brew install bat<br />
+brew install fd<br />
+brew install tree<br />
+<br />
+brew install font-fira-code-nerd-font<br />
+<br />
+brew install ripgrep<br />

@@ -105,6 +105,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias sc!='fc -e "sed -i -e \"s/ssh/ssh-copy-id -i ~\/.ssh\/id_rsa/\""'
 eval "$(starship init zsh)"
 
 source ~/.dotfiles/.zsh_autocompletion

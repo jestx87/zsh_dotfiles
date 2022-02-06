@@ -17,3 +17,17 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower
 
 zstyle ':completion:*' menu yes select
 setopt MENU_COMPLETE
+
+# >>>> brew command completion (start)
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  autoload -Uz compinit
+fi
+# <<<<  brew command completion (end)
+
+# >>>> Vagrant command completion (start)
+fpath=(/opt/vagrant/embedded/gems/2.2.19/gems/vagrant-2.2.19/contrib/zsh $fpath)
+# <<<<  Vagrant command completion (end)
+
+compinit

@@ -120,4 +120,8 @@ export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-PATH=$PATH:~/.local/bin
+if command -v batcat &> /dev/null
+then
+    alias bat='/usr/bin/batcat'
+fi
+

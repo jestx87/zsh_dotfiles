@@ -119,3 +119,5 @@ export FZF_ALT_C_COMMAND='fd --type d . --color=never --hidden'
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+PATH=$PATH:~/.local/bin

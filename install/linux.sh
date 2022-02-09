@@ -4,4 +4,3 @@ sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 ln -s ~/.dotfiles/.config .config
 ln -s ~/.dotfiles/.vimrc .vimrc
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install --all
-echo "install fzf manually"

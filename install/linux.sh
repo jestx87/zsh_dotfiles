@@ -4,4 +4,5 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 ln -s ~/.dotfiles/.config .config
 ln -s ~/.dotfiles/.vimrc .vimrc
+ln -s ~/.dotfiles/.vim .vim
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install --all

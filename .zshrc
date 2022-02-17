@@ -13,6 +13,9 @@ source $ZSH/oh-my-zsh.sh
 alias sc!='fc -e "sed -i -e \"s/ssh/ssh-copy-id -f -i ~\/.ssh\/id_rsa/\""'
 alias se='sudoedit'
 alias vap='ansible-playbook --user=vagrant --vault-password-file=.vaultpass'
+alias buu='brew update && brew upgrade'
+alias vcs='ssh-add -L | grep -F "parallels" | ssh-add -d -'
+
 eval "$(starship init zsh)"
 
 source ~/.dotfiles/.zsh_autocompletion

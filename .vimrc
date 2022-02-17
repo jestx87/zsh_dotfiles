@@ -28,5 +28,11 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
+
+autocmd VimEnter *
+  \  if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \|   PlugInstall --sync | q
+  \| endif
+
 let g:airline_theme='minimalist'
 colorscheme dracula

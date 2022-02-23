@@ -12,7 +12,7 @@ source $ZSH/oh-my-zsh.sh
 
 alias sc!='fc -e "sed -i -e \"s/ssh/ssh-copy-id -f -i ~\/.ssh\/id_rsa/\""'
 alias se='sudoedit'
-alias vap='ansible-playbook --user=vagrant --vault-password-file=.vaultpass'
+alias vap='ANSIBLE_CONFIG=~/dev/pm-admin/ansible.cfg; cd ~/dev/pm-admin/; ansible-playbook --user=vagrant --vault-password-file=.vaultpass'
 alias buu='brew update && brew upgrade && brew autoremove'
 alias vcs='ssh-add -L | grep -F "parallels" | ssh-add -d -'
 

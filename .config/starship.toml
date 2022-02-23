@@ -1,3 +1,5 @@
+right_format = '$username$hostname$localip'
+
 add_newline = true
 
 [username]

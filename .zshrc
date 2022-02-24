@@ -15,6 +15,7 @@ alias se='sudoedit'
 alias vap='ANSIBLE_CONFIG=~/dev/pm-admin/ansible.cfg; cd ~/dev/pm-admin/; ansible-playbook --user=vagrant --vault-password-file=.vaultpass'
 alias buu='brew update && brew upgrade && brew autoremove'
 alias vcs='ssh-add -L | grep -F "parallels" | ssh-add -d -'
+alias dgp='git -C ~/.oh-my-zsh pull; git -C ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions pull; git -C ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting pull'
 
 eval "$(starship init zsh)"
 

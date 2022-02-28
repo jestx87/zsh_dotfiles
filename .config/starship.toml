@@ -1,19 +1,18 @@
-right_format = '$username$hostname'
-format = '$all$localip$character'
+right_format = '$username$localip'
+format = '$all$hostname$character'
 
 add_newline = true
 
 [username]
-style_user='bold #A9A9A9'
+style_user = "bold #bd93f9"
 format = '[$user]($style)[*](purple)'
 
 [hostname]
-style= 'bold bright-black'
-format = '[$hostname]($style)[*](purple)'
+style = 'bold #A9A9A9'
+format = '[$hostname]($style) '
 
 [localip]
-style='bold #A9A9A9'
-format='[ssh]($style) '
+style= 'bold bright-black'
 
 [character]
 success_symbol = "[❯](purple)"

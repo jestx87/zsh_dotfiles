@@ -12,7 +12,8 @@ source $ZSH/oh-my-zsh.sh
 
 alias sc!='fc -e "sed -i -e \"s/ssh/ssh-copy-id -f -i ~\/.ssh\/id_rsa/\""'
 alias se='sudoedit'
-alias vap='ANSIBLE_CONFIG=~/dev/pm-admin/ansible.cfg; cd ~/dev/pm-admin/; ansible-playbook --user=vagrant --vault-password-file=.vaultpass'
+alias apv='ANSIBLE_CONFIG=~/dev/pm-admin/ansible.cfg; cd ~/dev/pm-admin/; ansible-playbook --user=vagrant --vault-password-file=.vaultpass'
+alias afv='ANSIBLE_CONFIG=~/dev/pm-admin/ansible.cfg; cd ~/dev/pm-admin/; ansible --user=vagrant --vault-password-file=.vaultpass -m ansible.builtin.setup'
 alias buu='brew update && brew upgrade && brew autoremove'
 alias vcs='ssh-add -L | grep -F "parallels" | ssh-add -d -'
 alias dgp='git -C ~/.oh-my-zsh pull; git -C ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions pull; git -C ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting pull'

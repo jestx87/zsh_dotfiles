@@ -26,7 +26,10 @@ if command -v batcat &> /dev/null
 then
     alias bat='/usr/bin/batcat'
 fi
-
+if command -v fdfind &> /dev/null
+then
+    alias fd='/usr/bin/fdfind'
+fi
 # custom stuff
 # functions
 function ansible_playbook_vagrant() {

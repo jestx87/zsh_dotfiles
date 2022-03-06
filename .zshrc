@@ -36,10 +36,11 @@ function ansible_facts_vagrant() {
   DIR=$PWD; cd ~/dev/pm-admin/; ansible --user=vagrant --vault-password-file=.vaultpass -m ansible.builtin.setup $@; cd $DIR
 }
 function dotfiles_git_pull() {
-  git -C ~/.dotfiles pull
-  git -C ~/.oh-my-zsh pull
-  git -C ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions pull
-  git -C ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting pull
+  dotfiles_folder=( ~/.dotfiles ~/.oh-my-zsh ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting  )
+  for i in "${dotfiles_folder[@]}"
+  do
+	  echo "$i"; git -C $i pull
+  done
 }
 
 # alias def

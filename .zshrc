@@ -24,11 +24,15 @@ eval "$(starship init zsh)"
 
 if command -v batcat &> /dev/null
 then
-    alias bat='/usr/bin/batcat'
+  alias bat='/usr/bin/batcat'
+  export FZF_CTRL_T_OPTS="--preview 'batcat --color=always --line-range :100 {}'"
 fi
 if command -v fdfind &> /dev/null
 then
-    alias fd='/usr/bin/fdfind'
+  alias fd='/usr/bin/fdfind'
+  export FZF_DEFAULT_COMMAND='fdfind --type f --color=never --hidden'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_ALT_C_COMMAND='fdfind --type d . --color=never --hidden'
 fi
 # custom stuff
 # functions

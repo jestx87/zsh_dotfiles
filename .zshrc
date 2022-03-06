@@ -13,6 +13,7 @@ git
 zsh-autosuggestions
 sudo
 zsh-syntax-highlighting
+dirhistory
 )
 
 source $ZSH/oh-my-zsh.sh

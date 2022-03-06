@@ -35,6 +35,12 @@ function ansible_playbook_vagrant() {
 function ansible_facts_vagrant() {
   DIR=$PWD; cd ~/dev/pm-admin/; ansible --user=vagrant --vault-password-file=.vaultpass -m ansible.builtin.setup $@; cd $DIR
 }
+function git_dotfiles_pull() {
+  git -C ~/.dotfiles pull
+  git -C ~/.oh-my-zsh pull
+  git -C ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions pull
+  git -C ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting pull
+}
 
 # alias def
 alias sc!='fc -e "sed -i -e \"s/ssh/ssh-copy-id -f -i ~\/.ssh\/id_rsa/\""'
@@ -43,4 +49,4 @@ alias apv='ansible_playbook_vagrant'
 alias afv='ansible_facts_vagrant'
 alias buu='brew update && brew upgrade && brew autoremove'
 alias vcs='ssh-add -L | grep -F "parallels" | ssh-add -d -'
-alias dgp='git -C ~/.oh-my-zsh pull; git -C ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions pull; git -C ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting pull'
+alias dgp='git_dotfiles_pull'

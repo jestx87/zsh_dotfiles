@@ -1,12 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR=vim
 export PATH="${HOMEBREW_PREFIX}/opt/openssl/bin:$PATH"
-export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
-export FZF_DEFAULT_OPTS='--no-height --color=bg+:#343d46,gutter:-1,pointer:#ff3c3c,info:#0dbc79,hl:#0dbc79,hl+:#23d18b'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :100 {}'"
-export FZF_ALT_C_COMMAND='fd --type d . --color=never --hidden'
-export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
 
 plugins=(
 git
@@ -23,6 +17,11 @@ source ~/.dotfiles/.zsh_autocompletion
 eval "$(starship init zsh)"
 
 
+export FZF_DEFAULT_COMMAND='fd --type f --color=never --hidden'
+export FZF_DEFAULT_OPTS='--no-height --color=bg+:#343d46,gutter:-1,pointer:#ff3c3c,info:#0dbc79,hl:#0dbc79,hl+:#23d18b'
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :100 {}'"
+export FZF_ALT_C_COMMAND='fd --type d . --color=never --hidden'
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
 if command -v fdfind &> /dev/null
 then
   alias fd='/usr/bin/fdfind'
@@ -30,13 +29,18 @@ then
   export FZF_DEFAULT_OPTS='--no-height --color=bg+:#343d46,gutter:-1,pointer:#ff3c3c,info:#0dbc79,hl:#0dbc79,hl+:#23d18b'
   export FZF_ALT_C_COMMAND='fdfind --type d . --color=never --hidden'
   export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
+elif  ! command -v fdfind && ! command -v fd &> /dev/null
+then
+  export FZF_DEFAULT_COMMAND='find . -type f'
+  export FZF_ALT_C_COMMAND='find . -type d'
 fi
 if command -v batcat &> /dev/null
 then
   alias bat='/usr/bin/batcat'
-  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
   export FZF_CTRL_T_OPTS="--preview 'batcat --color=always --line-range :100 {}'"
 fi
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
 # custom stuff
 # functions
 function ansible_playbook_vagrant() {

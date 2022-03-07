@@ -22,17 +22,24 @@ source ~/.dotfiles/.zsh_autocompletion
 
 eval "$(starship init zsh)"
 
-if command -v batcat &> /dev/null
-then
-  alias bat='/usr/bin/batcat'
-  export FZF_CTRL_T_OPTS="--preview 'batcat --color=always --line-range :100 {}'"
-fi
+
 if command -v fdfind &> /dev/null
 then
   alias fd='/usr/bin/fdfind'
   export FZF_DEFAULT_COMMAND='fdfind --type f --color=never --hidden'
-  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_DEFAULT_OPTS='--no-height --color=bg+:#343d46,gutter:-1,pointer:#ff3c3c,info:#0dbc79,hl:#0dbc79,hl+:#23d18b'
   export FZF_ALT_C_COMMAND='fdfind --type d . --color=never --hidden'
+  export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
+fi
+if command -v bat &> /dev/null
+then
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :100 {}'"
+elif command -v batcat &> /dev/null
+then
+  alias bat='/usr/bin/batcat'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_CTRL_T_OPTS="--preview 'batcat --color=always --line-range :100 {}'"
 fi
 # custom stuff
 # functions

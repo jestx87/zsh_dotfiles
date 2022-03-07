@@ -31,11 +31,7 @@ then
   export FZF_ALT_C_COMMAND='fdfind --type d . --color=never --hidden'
   export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
 fi
-if command -v bat &> /dev/null
-then
-  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-  export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :100 {}'"
-elif command -v batcat &> /dev/null
+if command -v batcat &> /dev/null
 then
   alias bat='/usr/bin/batcat'
   export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

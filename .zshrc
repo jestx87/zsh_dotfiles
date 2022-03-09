@@ -44,7 +44,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # custom stuff
 # functions
 function ansible_playbook_vsphere() {
-  read -s PASS"?vSphere Password (will be hidden):"; export VMWARE_PASSWORD=$PASS; DIR=$PWD; cd ~/dev/pm-admin/; ansible-playbook -e 'ansible_python_interpreter=/usr/bin/python3' --vault-password-file=.vaultpass $@; cd $DIR; export VMWARE_PASSWORD=
+  read -s PASS"?vSphere Password (will be hidden):"; export VMWARE_PASSWORD=$PASS; DIR=$PWD; cd ~/dev/pm-admin/; ansible-playbook -e 'ansible_python_interpreter=/usr/bin/python3' --user=vagrant --vault-password-file=.vaultpass $@; cd $DIR; export VMWARE_PASSWORD=
 }
 function ansible_playbook_vagrant() {
   DIR=$PWD; cd ~/dev/pm-admin/; ansible-playbook -e 'ansible_python_interpreter=/usr/bin/python3' --user=vagrant --vault-password-file=.vaultpass $@; cd $DIR

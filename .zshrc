@@ -43,11 +43,14 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # custom stuff
 # functions
+function ansible_playbook_vsphere() {
+  read -s PASS"?vSphere Password (will be hidden):"; export VMWARE_PASSWORD=$PASS; DIR=$PWD; cd ~/dev/pm-admin/; ansible-playbook -e 'ansible_python_interpreter=/usr/bin/python3' --vault-password-file=.vaultpass $@; cd $DIR; export VMWARE_PASSWORD=
+}
 function ansible_playbook_vagrant() {
-  DIR=$PWD; cd ~/dev/pm-admin/; ansible-playbook --user=vagrant --vault-password-file=.vaultpass $@; cd $DIR
+  DIR=$PWD; cd ~/dev/pm-admin/; ansible-playbook -e 'ansible_python_interpreter=/usr/bin/python3' --user=vagrant --vault-password-file=.vaultpass $@; cd $DIR
 }
 function ansible_facts_vagrant() {
-  DIR=$PWD; cd ~/dev/pm-admin/; ansible --user=vagrant --vault-password-file=.vaultpass -m ansible.builtin.setup $@; cd $DIR
+  DIR=$PWD; cd ~/dev/pm-admin/; ansible -e 'ansible_python_interpreter=/usr/bin/python3' --user=vagrant --vault-password-file=.vaultpass -m ansible.builtin.setup $@; cd $DIR
 }
 function dotfiles_git_pull() {
   dotfiles_folder=( ~/.dotfiles ~/.oh-my-zsh ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting  )
@@ -65,3 +68,4 @@ alias afv='ansible_facts_vagrant'
 alias buu='brew update && brew upgrade && brew autoremove'
 alias vcs='ssh-add -L | grep -F "parallels" | ssh-add -d -'
 alias dgp='dotfiles_git_pull'
+alias apvsphere='ansible_playbook_vsphere'

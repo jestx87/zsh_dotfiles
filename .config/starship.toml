@@ -12,7 +12,8 @@ style = 'bold #A9A9A9'
 format = '[$hostname]($style) '
 
 [localip]
-style= 'bold bright-black'
+style = 'bold bright-black'
+disabled = false
 
 [character]
 success_symbol = "[❯](purple)"

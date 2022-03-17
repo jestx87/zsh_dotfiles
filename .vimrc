@@ -20,10 +20,10 @@ autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
 autocmd BufNewFile,BufRead Berksfile set filetype=ruby
 
-if [ ! -z  "$proxy" ]; then
+if !empty($proxy)
   export http_proxy=$proxy
   export https_proxy=$proxy
-fi
+endif
 
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -46,7 +46,7 @@ autocmd VimEnter *
 let g:airline_theme='minimalist'
 colorscheme dracula
 
-if [ ! -z  "$proxy" ]; then
+if !empty($proxy)
   unset http_proxy
   unset https_proxy
-fi
+endif

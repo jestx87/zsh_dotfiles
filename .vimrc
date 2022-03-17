@@ -45,8 +45,3 @@ autocmd VimEnter *
 
 let g:airline_theme='minimalist'
 colorscheme dracula
-
-if !empty($proxy)
-  unlet $http_proxy
-  unlet $https_proxy
-endif

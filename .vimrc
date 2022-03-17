@@ -21,8 +21,8 @@ autocmd BufNewFile,BufRead Vagrantfile set filetype=ruby
 autocmd BufNewFile,BufRead Berksfile set filetype=ruby
 
 if !empty($proxy)
-  export http_proxy=$proxy
-  export https_proxy=$proxy
+  :let http_proxy=$proxy
+  :let https_proxy=$proxy
 endif
 
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -47,6 +47,6 @@ let g:airline_theme='minimalist'
 colorscheme dracula
 
 if !empty($proxy)
-  unset http_proxy
-  unset https_proxy
+  :unlet http_proxy
+  :unlet https_proxy
 endif

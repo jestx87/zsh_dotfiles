@@ -44,7 +44,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # custom stuff
 # functions
 function ansible_playbook_vsphere() {
-  read -s PASS"?vSphere Password (will be hidden):"; export VMWARE_PASSWORD=$PASS; DIR=$PWD; cd ~/dev/pm-admin/; ansible-playbook -e 'local_ansible_python_interpreter=/usr/bin/python3' --user=vagrant --vault-password-file=.vaultpass $@; cd $DIR; export VMWARE_PASSWORD=
+  read -s PASS"?vSphere Password (will be hidden):"; export VMWARE_PASSWORD=$PASS; DIR=$PWD; cd ~/dev/pm-admin/; ansible-playbook -e 'local_ansible_run_vsphere=true local_ansible_python_interpreter=/usr/bin/python3' --user=vagrant --vault-password-file=.vaultpass $@; cd $DIR; export VMWARE_PASSWORD=
 }
 function ansible_playbook_vagrant() {
   DIR=$PWD; cd ~/dev/pm-admin/; ansible-playbook -e 'local_ansible_python_interpreter=/usr/bin/python3' --user=vagrant --vault-password-file=.vaultpass $@; cd $DIR
@@ -53,11 +53,19 @@ function ansible_facts_vagrant() {
   DIR=$PWD; cd ~/dev/pm-admin/; ansible -e 'local_ansible_python_interpreter=/usr/bin/python3' --user=vagrant --vault-password-file=.vaultpass -m ansible.builtin.setup $@; cd $DIR
 }
 function dotfiles_git_pull() {
+  if [ ! -z  "$proxy" ]; then
+    export http_proxy=$proxy
+    export https_proxy=$proxy
+  fi
   dotfiles_folder=( ~/.dotfiles ~/.oh-my-zsh ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting  )
   for i in "${dotfiles_folder[@]}"
   do
 	  echo "$i"; git -C $i pull
   done
+  if [ ! -z  "$proxy" ]; then
+    unset http_proxy
+    unset https_proxy
+  fi
 }
 
 # alias def

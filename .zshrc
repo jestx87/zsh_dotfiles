@@ -34,11 +34,6 @@ then
   export FZF_DEFAULT_COMMAND='find . -type f'
   export FZF_ALT_C_COMMAND='find . -type d'
 fi
-if command -v batcat &> /dev/null
-then
-  alias bat='/usr/bin/batcat'
-  export FZF_CTRL_T_OPTS="--preview 'batcat --color=always --line-range :100 {}'"
-fi
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # custom stuff

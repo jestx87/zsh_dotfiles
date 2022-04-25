@@ -47,8 +47,8 @@ function ansible_playbook_vagrant() {
   DIR=$PWD; cd ~/dev/pm-admin/; ansible-playbook -e 'local_ansible_python_interpreter=/usr/bin/python3' --user=vagrant --vault-password-file=.vaultpass $@; cd $DIR
 }
 function ansible_facts_vagrant() {
-  if [ -f "~/.ssh/vagrant_key" ]; then
-    VAGRANTKEYFILE="--key-file=~/.ssh/vagrant_key"
+  if [ -f ~/.ssh/vagrant_key ]; then
+    VAGRANTKEYFILE="--private-key ~/.ssh/vagrant_key"
   else
     VAGRANTKEYFILE=""
   fi

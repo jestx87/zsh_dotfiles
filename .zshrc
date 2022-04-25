@@ -48,7 +48,7 @@ function ansible_playbook_vagrant() {
 }
 function ansible_facts_vagrant() {
   if [ -f ~/.ssh/vagrant_key ]; then
-    VAGRANTKEYFILE="--private-key ~/.ssh/vagrant_key"
+    VAGRANTKEYFILE="--private-key=~/.ssh/vagrant_key"
   else
     VAGRANTKEYFILE=""
   fi

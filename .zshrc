@@ -3,6 +3,8 @@ export EDITOR=vim
 export PATH="${HOMEBREW_PREFIX}/opt/openssl/bin:$PATH"
 
 plugins=(
+#kubectl
+docker
 git
 zsh-autosuggestions
 sudo
@@ -45,7 +47,12 @@ function ansible_playbook_vagrant() {
   DIR=$PWD; cd ~/dev/pm-admin/; ansible-playbook -e 'local_ansible_python_interpreter=/usr/bin/python3' --user=vagrant --vault-password-file=.vaultpass $@; cd $DIR
 }
 function ansible_facts_vagrant() {
-  DIR=$PWD; cd ~/dev/pm-admin/; ansible -e 'local_ansible_python_interpreter=/usr/bin/python3' --user=vagrant --vault-password-file=.vaultpass -m ansible.builtin.setup $@; cd $DIR
+  if [ -f "~/.ssh/vagrant_key" ]; then
+    VAGRANTKEYFILE="--key-file=~/.ssh/vagrant_key"
+  else
+    VAGRANTKEYFILE=""
+  fi
+  DIR=$PWD; cd ~/dev/pm-admin/; ansible -e 'local_ansible_python_interpreter=/usr/bin/python3' --user=vagrant $VAGRANTKEYFILE --vault-password-file=.vaultpass -m ansible.builtin.setup $@; cd $DIR
 }
 function dotfiles_git_pull() {
   if [ ! -z  "$proxy" ]; then

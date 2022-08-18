@@ -37,3 +37,25 @@ function dotfiles_git_pull() {
     unset https_proxy
   fi
 }
+function omzupdate() {
+  if [ ! -z  "$proxy" ]; then
+    export http_proxy=$proxy
+    export https_proxy=$proxy
+  fi
+  omz update
+  if [ ! -z  "$proxy" ]; then
+    unset http_proxy
+    unset https_proxy
+  fi
+}
+function starshipupdate() {
+  if [ ! -z  "$proxy" ]; then
+    export http_proxy=$proxy
+    export https_proxy=$proxy
+  fi
+  sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+  if [ ! -z  "$proxy" ]; then
+    unset http_proxy
+    unset https_proxy
+  fi
+}

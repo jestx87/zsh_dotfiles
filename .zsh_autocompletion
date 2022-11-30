@@ -30,4 +30,7 @@ fi
 fpath=(/opt/vagrant/embedded/gems/2.2.19/gems/vagrant-2.2.19/contrib/zsh $fpath)
 # <<<<  Vagrant command completion (end)
 
+# azure-cli
+source "$(brew --prefix)/etc/bash_completion.d/az"
+
 compinit

@@ -3,7 +3,8 @@ export EDITOR=vim
 export PATH="${HOMEBREW_PREFIX}/opt/openssl/bin:$HOME/.local/bin:$PATH"
 
 plugins=(
-#kubectl
+terraform
+kubectl
 docker
 git
 zsh-autosuggestions
@@ -44,7 +45,9 @@ source ~/.dotfiles/.zsh_functions
 alias sc!='fc -e "sed -i -e \"s/ssh/ssh-copy-id -f -i ~\/.ssh\/id_rsa/\""'
 alias se='sudoedit'
 alias apv='ansible_playbook_vagrant'
+alias apa='ansible_playbook_ansible'
 alias afv='ansible_facts_vagrant'
+alias afa='ansible_facts_ansible'
 alias buu='brew update && brew upgrade && brew autoremove'
 alias vcs='ssh-add -L | grep -F "parallels" | ssh-add -d -'
 alias dgp='dotfiles_git_pull'

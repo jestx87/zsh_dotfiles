@@ -28,7 +28,7 @@ function ansible_playbook_ansible() {
   else
     VAGRANTKEYFILE=""
   fi
-  DIR=$PWD; cd ~/dev/pm-admin/; ansible-playbook -e 'local_ansible_python_interpreter=/usr/bin/python3' --user=ansible $VAGRANTKEYFILE --vault-password-file=.vaultpass $@ | sed 's/.*=> //' | jq '.[]'; cd $DIR
+  DIR=$PWD; cd ~/dev/pm-admin/; ansible-playbook -e 'local_ansible_python_interpreter=/usr/bin/python3' --user=ansible $VAGRANTKEYFILE --vault-password-file=.vaultpass $@; cd $DIR
 }
 function ansible_facts_ansible() {
   if [ -f ~/.ssh/vagrant_key ]; then
@@ -36,7 +36,7 @@ function ansible_facts_ansible() {
   else
     VAGRANTKEYFILE=""
   fi
-  DIR=$PWD; cd ~/dev/pm-admin/; ansible -e 'local_ansible_python_interpreter=/usr/bin/python3' --user=ansible $VAGRANTKEYFILE --vault-password-file=.vaultpass -m ansible.builtin.setup $@; cd $DIR
+  DIR=$PWD; cd ~/dev/pm-admin/; ansible -e 'local_ansible_python_interpreter=/usr/bin/python3' --user=ansible $VAGRANTKEYFILE --vault-password-file=.vaultpass -m ansible.builtin.setup $@ | sed 's/.*=> //' | jq '.[]'; cd $DIR
 }
 function dotfiles_git_pull() {
   if [ ! -z  "$proxy" ]; then

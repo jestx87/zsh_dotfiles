@@ -1,7 +1,14 @@
 right_format = '$username$localip'
-format = '$all$hostname$character'
+format = '$env_var$all$hostname$character'
 
 add_newline = true
+#add_newline = false -> use when switched to warp terminal
+
+# Shows an icon that should be included by zshrc script based on the distribution or os
+[env_var.STARSHIP_DISTRO]
+format = '[$env_value](style) '
+variable = "STARSHIP_DISTRO"
+disabled = false
 
 [username]
 style_user = "bold #bd93f9"
@@ -17,7 +24,9 @@ disabled = false
 
 [character]
 success_symbol = "[❯](purple)"
+#success_symbol = "" -> use when switched to warp terminal
 error_symbol = "[❯](red)"
+#error_symbol = "" -> use when switched to warp terminal
 vicmd_symbol = "[❮](green)"
 
 [aws]

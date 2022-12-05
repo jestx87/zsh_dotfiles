@@ -16,6 +16,7 @@ dirhistory
 source $ZSH/oh-my-zsh.sh
 source ~/.dotfiles/.zsh_autocompletion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[[ -f ~/.dotfiles/starship.zsh ]] && source ~/.dotfiles/starship.zsh
 
 eval "$(starship init zsh)"
 

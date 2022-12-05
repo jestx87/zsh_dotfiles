@@ -31,6 +31,8 @@ fpath=(/opt/vagrant/embedded/gems/2.2.19/gems/vagrant-2.2.19/contrib/zsh $fpath)
 # <<<<  Vagrant command completion (end)
 
 # azure-cli
-[[ -f "$(brew --prefix)/etc/bash_completion.d/az" ]] && source "$(brew --prefix)/etc/bash_completion.d/az"
-
+if type brew &>/dev/null
+then
+  [[ -f "$(brew --prefix)/etc/bash_completion.d/az" ]] && source "$(brew --prefix)/etc/bash_completion.d/az"
+fi
 compinit

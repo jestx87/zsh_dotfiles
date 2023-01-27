@@ -75,3 +75,10 @@ function starshipupdate() {
     unset https_proxy
   fi
 }
+function azuressh {
+  AZUREIP=$@
+  AZURESSHFILE=~/.ssh/azure/$AZUREIP
+  az ssh config --file $AZURESSHFILE --ip $AZUREIP --overwrite
+  ssh $AZUREIP -F $AZURESSHFILE -o StrictHostKeyChecking=no
+  rm -rf ~/.ssh/azure/az_ssh_config/$AZUREIP ~/.ssh/azure/$AZUREIP
+}

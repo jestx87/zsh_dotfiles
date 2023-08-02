@@ -4,4 +4,4 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 brew install ansible
 brew install git
-mkdir ~/.dotfiles && cd ~/.dotfiles && git clone https://github.com/jestx87/zsh_dotfiles.git
+mkdir ~/.dotfiles && cd ~/.dotfiles && git clone https://github.com/jestx87/zsh_dotfiles.git && cd ~

@@ -35,6 +35,8 @@
       notify:
         - Move oh-my-zsh
         - Link to .oh-my-zsh
+        - Clone zsh-autosuggestions
+        - Clone zsh-syntax-highlighting
 
     - name: "Flush handlers"
       ansible.builtin.meta: flush_handlers
@@ -54,7 +56,7 @@
 
     - name: Brew bundle # noqa no-changed-when
       ansible.builtin.command:
-        cmd: brew bundle
+        cmd: brew bundle --file=~/Brewfile
         chdir: ~
 
   handlers:

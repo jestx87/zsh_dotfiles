@@ -34,6 +34,14 @@
         dest: ~/.config
         state: link
 
+    - name: Install oh-my-zsh
+      ansible.builtin.command:
+        cmd: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        creates: ~/.dotfiles/.oh-my-zsh
+      notify:
+        - Move oh-my-zsh
+        - Link to .oh-my-zsh
+
     - name: Link to .oh-my-zsh
       ansible.builtin.file:
         src: ~/.dotfiles/.oh-my-zsh
@@ -44,3 +52,14 @@
     #   ansible.builtin.command:
     #     cmd: brew bundle
     #     chdir: ~
+
+  handlers:
+    - name: Move oh-my-zsh
+      ansible.builtin.command:
+        cmd: mv ~/.oh-my-zsh ~/.dotfiles/
+
+    - name: Link to .oh-my-zsh
+      ansible.builtin.file:
+        src: ~/.dotfiles/.oh-my-zsh
+        dest: ~/.oh-my-zsh
+        state: link

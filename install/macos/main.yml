@@ -10,12 +10,6 @@
         dest: ~/Brewfile
         state: link
 
-    - name: Link to .zshrc
-      ansible.builtin.file:
-        src: ~/.dotfiles/.zshrc
-        dest: ~/.zshrc
-        state: link
-
     - name: Link to .vim
       ansible.builtin.file:
         src: ~/.dotfiles/.vim
@@ -50,6 +44,13 @@
         src: ~/.dotfiles/.oh-my-zsh
         dest: ~/.oh-my-zsh
         state: link
+
+    - name: Link to .zshrc
+      ansible.builtin.file:
+        src: ~/.dotfiles/.zshrc
+        dest: ~/.zshrc
+        state: link
+        force: true
 
     # - name: Brew bundle
     #   ansible.builtin.command:

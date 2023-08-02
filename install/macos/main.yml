@@ -52,10 +52,10 @@
         state: link
         force: true
 
-    # - name: Brew bundle
-    #   ansible.builtin.command:
-    #     cmd: brew bundle
-    #     chdir: ~
+    - name: Brew bundle # noqa no-changed-when
+      ansible.builtin.command:
+        cmd: brew bundle
+        chdir: ~
 
   handlers:
     - name: Move oh-my-zsh

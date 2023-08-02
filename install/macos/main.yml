@@ -81,7 +81,3 @@
         repo: 'https://github.com/zsh-users/zsh-syntax-highlighting.git'
         dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
         version: master
-
-    - name: Move oh-my-zsh
-      ansible.builtin.command:
-        cmd: mv ~/.oh-my-zsh ~/.dotfiles/

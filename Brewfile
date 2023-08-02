@@ -1,7 +1,6 @@
 tap "azure/kubelogin"
 tap "derailed/k9s"
 tap "homebrew/bundle"
-tap "homebrew/cask-drivers"
 tap "homebrew/cask-fonts"
 brew "ansible"
 brew "azure-cli"

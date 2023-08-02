@@ -42,6 +42,9 @@
         - Move oh-my-zsh
         - Link to .oh-my-zsh
 
+    - name: "Flush handlers"
+      ansible.builtin.meta: flush_handlers
+
     - name: Link to .oh-my-zsh
       ansible.builtin.file:
         src: ~/.dotfiles/.oh-my-zsh

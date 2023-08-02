@@ -6,38 +6,38 @@
   tasks:
     - name: Link to Brewfile
       ansible.builtin.file:
-        src: ~/Brewfile
-        dest: ~/.dotfiles/Brewfile
+        src: ~/.dotfiles/Brewfile
+        dest: ~/Brewfile
         state: link
 
     - name: Link to .zshrc
       ansible.builtin.file:
-        src: ~/.zshrc
-        dest: ~/.dotfiles/.zshrc
+        src: ~/.dotfiles/.zshrc
+        dest: ~/.zshrc
         state: link
 
     - name: Link to .vim
       ansible.builtin.file:
-        src: ~/.vim
-        dest: ~/.dotfiles/.vim
+        src: ~/.dotfiles/.vim
+        dest: ~/.vim
         state: link
 
     - name: Link to .vimrc
       ansible.builtin.file:
-        src: ~/.vimrc
-        dest: ~/.dotfiles/.vimrc
+        src: ~/.dotfiles/.vimrc
+        dest: ~/.vimrc
         state: link
 
     - name: Link to .config
       ansible.builtin.file:
-        src: ~/.config
-        dest: ~/.dotfiles/.config
+        src: ~/.dotfiles/.config
+        dest: ~/.config
         state: link
 
     - name: Link to .oh-my-zsh
       ansible.builtin.file:
-        src: ~/.oh-my-zsh
-        dest: ~/.dotfiles/.oh-my-zsh
+        src: ~/.dotfiles/.oh-my-zsh
+        dest: ~/.oh-my-zsh
         state: link
 
     # - name: Brew bundle

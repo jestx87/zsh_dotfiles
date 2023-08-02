@@ -36,7 +36,7 @@
 
     - name: Install oh-my-zsh
       ansible.builtin.command:
-        cmd: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        cmd: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
         creates: ~/.dotfiles/.oh-my-zsh
       notify:
         - Move oh-my-zsh
